@@ -1,5 +1,6 @@
 # HANGMAN![image](https://user-images.githubusercontent.com/102962523/164088068-c255d789-a69f-47da-bcde-dc94eebbe303.png)
 
+* This project is made in Visual Studio 2019,  so if you want to see the code, you can either open the .py files, or the .sln files 
 
 	The project containts a pair of client – server applications (made with Python sockets) that implements the game „Hangman”. The rules are simple: 	
 	 -  the client, the moment he/she wants to start the game, sends the start command to the server;
