@@ -1,5 +1,6 @@
 # HANGMAN![image](https://user-images.githubusercontent.com/102962523/164088068-c255d789-a69f-47da-bcde-dc94eebbe303.png)
 
+
 	The project containts a pair of client – server applications (made with Python sockets) that implements the game „Hangman”. The rules are simple: 	
 	 -  the client, the moment he/she wants to start the game, sends the start command to the server;
 	 - the server chooses a random word from the 'hangwords.txt’ file. It sends a version of this word to the client. This version retains only the letters that appear at the beginning and at its end, the rest of the letters being replaced by underlines. Along with this, the server also sends a list of letters from the word HANGMAN which shows how many times the client has made a mistake and how many guesses it still has; at first there is no letter from HANGMAN because there’s no mistake . . . yet   .
