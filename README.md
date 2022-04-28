@@ -81,5 +81,5 @@
   # This is how a complete message exchange looks like:
   ![image](https://user-images.githubusercontent.com/102962523/164090390-2b63e07b-a875-431d-b674-5439f33e474c.png)
   ![image](https://user-images.githubusercontent.com/102962523/164090405-557278e0-59da-42ea-aa2f-f5b1cab8c96e.png)
-  The server is always ready and receives messages from multiple clients, generating new words after each START command.
+  <br>The server is always ready and receives messages from multiple clients, generating new words after each START command.<br>
   ![image](https://user-images.githubusercontent.com/102962523/164090441-d79ac069-572a-47d8-938a-510b7fa9d3a7.png)
