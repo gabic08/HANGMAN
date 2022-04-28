@@ -41,49 +41,37 @@
   ![image](https://user-images.githubusercontent.com/102962523/164089161-2af50970-0a82-4845-abfd-f0d3f77fefe0.png)
   <br>After receiving the start command, the server opens the 'hangwords.txt' file and reads the words in it (each word is on a different line), and then chooses a random number, less than the number of lines in the text file , and the word at that position becomes the word that needs to be guessed by the Client.<br>
   ![image](https://user-images.githubusercontent.com/102962523/164089306-f8e49778-67b7-4571-ba46-923619182d8b.png)
-
- 	Then two lists are declared (the first one - 'guessWord', contains the letters from the word thet needs to be guessed, and the second one - 'H', contains letters from the hangman, letters that are added to the list at each mistake of the Client) and a string - 'msg', whose content will consist of the two lists combined. The two lists are currently empty, they only have square brackets because between them will be included the word to be guessed and hangman.
+ 	<br>Then two lists are declared (the first one - 'guessWord', contains the letters from the word thet needs to be guessed, and the second one - 'H', contains letters from the hangman, letters that are added to the list at each mistake of the Client) and a string - 'msg', whose content will consist of the two lists combined. The two lists are currently empty, they only have square brackets because between them will be included the word to be guessed and hangman.<br>
   ![image](https://user-images.githubusercontent.com/102962523/164089386-1785293b-c0d6-475b-a947-16f1545bd250.png)
-
- 	The version of the word to be guessed is formed (the letters that are equal to the first and last letter of the word are added in 'guessWord', and the others are first replaced with underline, and then added in 'guessWord').
+ 	<br>The version of the word to be guessed is formed (the letters that are equal to the first and last letter of the word are added in 'guessWord', and the others are first replaced with underline, and then added in 'guessWord').<br>
   ![image](https://user-images.githubusercontent.com/102962523/164089422-277609c9-deda-4600-b33f-89c562bb49e8.png)
-
- 	'msg' is created by concatenating 'guessWord' and 'H' and is sent to the server:
+ 	<br>'msg' is created by concatenating 'guessWord' and 'H' and is sent to the server:<br>
   ![image](https://user-images.githubusercontent.com/102962523/164089459-e927160b-1550-45a2-90d1-310c24c43ec3.png)
- 	'j' is a counter that adds letters from 'H' to the message sent to the client. It becomes 0 after each START command because each client starts the game with 0 mistakes.
-  
-  	The message is sent to the Client so let’s get back to the 'Client' program.
+ 	<br>'j' is a counter that adds letters from 'H' to the message sent to the client. It becomes 0 after each START command because each client starts the game with 0 mistakes.
+  	<br>The message is sent to the Client so let’s get back to the 'Client' program.<br>
   ![image](https://user-images.githubusercontent.com/102962523/164089643-0e84a1f1-ed29-4b91-a8b9-d86715dfcbcf.png)
-
- 	The message is received and displayed and 'st' becames True.
+ 	<br>The message is received and displayed and 'st' becames True.<br>
   ![image](https://user-images.githubusercontent.com/102962523/164089700-8497bd58-492e-453b-8fcb-3300c74d38e5.png)
  	This is the message sent by the Server in this example. The second list is empty because there is no mistake made, so there is no letter from the list 'H'.
-  
- 	The 'while' structure is repeated again, only this time "START" has been sent, so we jump to the "else" statement:
+ 	<br>The 'while' structure is repeated again, only this time "START" has been sent, so we jump to the "else" statement:<br>
   ![image](https://user-images.githubusercontent.com/102962523/164089760-05190eef-175c-4db2-8a3c-0697df609fcb.png)
-
- 	Inside 'else' a letter is first required to be inserted. The letter is then sent to the Server, and then a reply is received which is displayed.
+ 	<br>Inside 'else' a letter is first required to be inserted. The letter is then sent to the Server, and then a reply is received which is displayed.<br>
   ![image](https://user-images.githubusercontent.com/102962523/164089817-b1cb480d-4e86-45e7-a5db-b3380fae359c.png)
-
-  
- 	The program checks if there are underlines in the reply, or if the word "HANGMAN" appears in the reply. If one of the two conditions is True, the game ends; otherwise, 'while' is repeated until one of the two conditions becomes True.
+ 	<br>The program checks if there are underlines in the reply, or if the word "HANGMAN" appears in the reply. If one of the two conditions is True, the game ends; otherwise, 'while' is repeated until one of the two conditions becomes True.<br>
   ![image](https://user-images.githubusercontent.com/102962523/164089858-b284b2c7-1a91-410e-b48a-cd041def2a0f.png)
-
- 	At the end of the program, after the game is over, the connection to the Server closes.
+ 	<br>At the end of the program, after the game is over, the connection to the Server closes.<br>
   ![image](https://user-images.githubusercontent.com/102962523/164089889-de0b4a48-c0b8-41ac-ac1c-dbb6b712cf73.png)
 
 
  	Let's get back to this line: 
   ![image](https://user-images.githubusercontent.com/102962523/164089918-609fb75b-d639-4e5d-b3da-5f83526c33f4.png)
- 	Here a letter is sent to the Server. Let’s see what does the Server do with the letter:
+ 	<br>Here a letter is sent to the Server. Let’s see what does the Server do with the letter:
 	The 'while' structure is repeated again, only this time the message is no longer "START", so the program jumps to the 'else' statement.
   ![image](https://user-images.githubusercontent.com/102962523/164089995-4938894e-dc3f-42c3-b0ab-f69a778fdfa3.png)
 
   Inside 'else', 'msg' becomes empty because it will be formed this time from a new 'guessWord' or a new 'H', depending on how the Client guesses the letter.
   ![image](https://user-images.githubusercontent.com/102962523/164090039-19268b0a-eb86-4da9-9727-0c757b78aa47.png)
-
-
- 	The program checks if the letter appears in the word. If id does, the underline of the letter position (s) in the word is replaced by the letter; if not, a character from 'hangman' is added to 'H', and 'j' increases, moving to the next character in 'hangman'.
+ 	<br>The program checks if the letter appears in the word. If id does, the underline of the letter position (s) in the word is replaced by the letter; if not, a character from 'hangman' is added to 'H', and 'j' increases, moving to the next character in 'hangman'.<br>
   ![image](https://user-images.githubusercontent.com/102962523/164090252-dd1537b7-99a0-430f-ab2f-c8100ac86059.png)
 
  	 After that, 'guessWord' and 'H' are added to 'msg', and then the message
