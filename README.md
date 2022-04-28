@@ -71,11 +71,10 @@
 
   Inside 'else', 'msg' becomes empty because it will be formed this time from a new 'guessWord' or a new 'H', depending on how the Client guesses the letter.
   ![image](https://user-images.githubusercontent.com/102962523/164090039-19268b0a-eb86-4da9-9727-0c757b78aa47.png)
- 	<br>The program checks if the letter appears in the word. If id does, the underline of the letter position (s) in the word is replaced by the letter; if not, a character from 'hangman' is added to 'H', and 'j' increases, moving to the next character in 'hangman'.<br>
+ <br>The program checks if the letter appears in the word. If id does, the underline of the letter position (s) in the word is replaced by the letter; if not, a character from 'hangman' is added to 'H', and 'j' increases, moving to the next character in 'hangman'.<br>
   ![image](https://user-images.githubusercontent.com/102962523/164090252-dd1537b7-99a0-430f-ab2f-c8100ac86059.png)
-
- 	 After that, 'guessWord' and 'H' are added to 'msg', and then the message
- is sent to the Client.
+  <br>After that, 'guessWord' and 'H' are added to 'msg', and then the message
+ is sent to the Client.<br>
   ![image](https://user-images.githubusercontent.com/102962523/164090291-76617275-f620-4779-b3ce-76a15e10288e.png)
 
    
