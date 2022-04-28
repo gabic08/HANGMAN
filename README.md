@@ -2,10 +2,9 @@
 
 If you want to see the code, open the .py files 
 <br>The project containts a pair of client – server applications (made with Python sockets) that implements the game „Hangman”. The rules are simple: 	
-	 -  the client, the moment he/she wants to start the game, sends the start command to the server;
-	 - the server chooses a random word from the 'hangwords.txt’ file. It sends a version of this word to the client. This version retains only the letters that appear at the beginning and at its end, the rest of the letters being replaced by underlines. Along with this, the server also sends a list of letters from the word HANGMAN which shows how many times the client has made a mistake and how many guesses it still has; at first there is no letter from HANGMAN because there’s no mistake . . . yet   .
-	 - after the client receives the sketch of the word he/she has to guess, he/she will send letters to the server till the game finishes.  If the letter received from the client exists in the word that needs to be guessed, then the underline from the position of that letter in the word is replaced by that letter changing the version of the word that is sent to the client. Otherwise, a letter from the word 'HANGMAN' is added to the list. The current version of the word to be guessed along with the letters from HANGMAN are added to the message sent to the client to show him/her the progress. 
-
+	 <br>-  the client, the moment he/she wants to start the game, sends the start command to the server;
+	 <br>- the server chooses a random word from the 'hangwords.txt’ file. It sends a version of this word to the client. This version retains only the letters that appear at the beginning and at its end, the rest of the letters being replaced by underlines. Along with this, the server also sends a list of letters from the word HANGMAN which shows how many times the client has made a mistake and how many guesses it still has; at first there is no letter from HANGMAN because there’s no mistake . . . yet   .
+	<br> - after the client receives the sketch of the word he/she has to guess, he/she will send letters to the server till the game finishes.  If the letter received from the client exists in the word that needs to be guessed, then the underline from the position of that letter in the word is replaced by that letter changing the version of the word that is sent to the client. Otherwise, a letter from the word 'HANGMAN' is added to the list. The current version of the word to be guessed along with the letters from HANGMAN are added to the message sent to the client to show him/her the progress. 
 	<br>Too complicated?
 	Let's check the code and see how it works. 
 	Maybe things are getting better . . .
