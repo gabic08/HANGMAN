@@ -10,53 +10,36 @@
 	Too complicated?
 	Let's check the code and see how it works. 
 	Maybe things are getting better . . .
-
-	Let's start with the client, more precisely, with the beginning of the Client program:
+	<br>Let's start with the client, more precisely, with the beginning of the Client program:<br>
  ![image](https://user-images.githubusercontent.com/102962523/164088217-f7e55964-0407-4394-9782-e47113713c1c.png)
- 
-  	At the beginning of the program, the ’socket’ library is imported so that we can use the sockets, although this is completely obvious  . 
+  	<br>At the beginning of the program, the ’socket’ library is imported so that we can use the sockets, although this is completely obvious  . 
 	Then we choose the ID address and port number of the server to be able to connect the applications. The address 127.0.0.1 was chosen because both applications were created on the same device. The port 6200 was randomly chosen for the sake of the project.
 	'client_socket' is an object that inherits the attributes of the 'socket' class by calling the class constructor. It helps us send the messages to the server.
-  
-  
-	 After that we declare 3 variables. Their role is explained in the comments from the code:
+	 <br>After that we declare 3 variables. Their role is explained in the comments from the code:<br>
   ![image](https://user-images.githubusercontent.com/102962523/164088293-75546284-2a0b-4e08-bc56-3eee4f20bb81.png)
-
-
- 	Now we are geting to the most importatnt part from the Client application: we’ll see how to send messages to the server and how to get the word we need to guess from the server. The message exchange takes place in a while structure. The instructions in the structure repeat as long as the boolean variable 'finished' (which checks if the game is over) is False.
+ 	<br>Now we are geting to the most importatnt part from the Client application: we’ll see how to send messages to the server and how to get the word we need to guess from the server. The message exchange takes place in a while structure. The instructions in the structure repeat as long as the boolean variable 'finished' (which checks if the game is over) is False.<br>
   ![image](https://user-images.githubusercontent.com/102962523/164088365-8e863a77-8e44-466b-92b0-21bb34acc2d8.png)
-
-  
- 	First we check if the start command has been sent (it must be sent so the game begins). The boolean variable 'st' checks this. 'st' is currently False.
-	We have to write the "START" command. The size of the characters is ignored because it is automatically converted to uppercase and then compared to "START".
+ 	<br>First we check if the start command has been sent (it must be sent so the game begins). The boolean variable 'st' checks this. 'st' is currently False.
+	We have to write the "START" command. The size of the characters is ignored because it is automatically converted to uppercase and then compared to "START".<br>
   ![image](https://user-images.githubusercontent.com/102962523/164088411-e57fc279-b5ef-4802-9df0-0fe0e5fcd15b.png)
-
- 
- 	As long as the right command is not entered, the input will continue to be requested so that the application can move on.
+ 	<br>As long as the right command is not entered, the input will continue to be requested so that the application can move on.<br>
   ![image](https://user-images.githubusercontent.com/102962523/164088580-2ea27e18-d74b-492e-9d9d-4cb3bea53aa0.png)
-
- 	After writing "START" and send it to the server, the client receives the structure of the word that needs to be guessed, and 'st' becomes True (the command has been sent).
+	<br>After writing "START" and send it to the server, the client receives the structure of the word that needs to be guessed, and 'st' becomes True (the command has been sent).<br>
   ![image](https://user-images.githubusercontent.com/102962523/164088626-89116b77-c83a-460c-adeb-b6a91cd6cbab.png)
   ![image](https://user-images.githubusercontent.com/102962523/164088636-7e231a0a-7e53-426f-8f37-221220a633c0.png)
-
-
- 	Let’s get back to this line: ![image](https://user-images.githubusercontent.com/102962523/164088668-290aa54b-56c0-4b10-9b02-b37f21d7e437.png)
-
- 	Using the client_socket object, we send the encoded message to the server that has the address and the port from the tuple.
+ 	<br>Let’s get back to this line: ![image](https://user-images.githubusercontent.com/102962523/164088668-290aa54b-56c0-4b10-9b02-b37f21d7e437.png)
+ 	<br>Using the client_socket object, we send the encoded message to the server that has the address and the port from the tuple.
 	Now let’s go to the server and see what happens when the message is received.
- 	But before that, we should take a look at the beginning of the 'Server' program:
+ 	But before that, we should take a look at the beginning of the 'Server' program:<br>
   ![image](https://user-images.githubusercontent.com/102962523/164088794-fdfd6619-cd2d-43eb-a836-3801192c6bcd.png)
  	We give the port its value (6200 is the same value that the port in the Client has).
 	Then 'server_socket' inherits the attributes of the 'socket' class by calling the class constructor. On the next line, the server binds with the client that uses the port 6200. 
 	We then print a message to show that the server is ready to do its job.
 	'hangman' is a list that contains the letters of the word ”HANGMAN”. The letters from this list will be added to the message that will be sent to the client each time the client make a wrong guess.
-  
- 	The exchange of messages and the verification of the letters take place in a 'while' structure, but this time there is no condition for this 'while' to end, because the server must always be ready in order to be accessed by a new Client.
- 	In the first instruction inside of 'while' a message and the Client’s adress are received from the Client. The message is verified. The first time it is checked if it is "START" and indeed, in the Client we sent the command "START" to the Server.
+ 	<br>The exchange of messages and the verification of the letters take place in a 'while' structure, but this time there is no condition for this 'while' to end, because the server must always be ready in order to be accessed by a new Client.
+ 	In the first instruction inside of 'while' a message and the Client’s adress are received from the Client. The message is verified. The first time it is checked if it is "START" and indeed, in the Client we sent the command "START" to the Server.<br>
   ![image](https://user-images.githubusercontent.com/102962523/164089161-2af50970-0a82-4845-abfd-f0d3f77fefe0.png)
-
-  
-  After receiving the start command, the server opens the 'hangwords.txt' file and reads the words in it (each word is on a different line), and then chooses a random number, less than the number of lines in the text file , and the word at that position becomes the word that needs to be guessed by the Client.
+  <br>After receiving the start command, the server opens the 'hangwords.txt' file and reads the words in it (each word is on a different line), and then chooses a random number, less than the number of lines in the text file , and the word at that position becomes the word that needs to be guessed by the Client.<br>
   ![image](https://user-images.githubusercontent.com/102962523/164089306-f8e49778-67b7-4571-ba46-923619182d8b.png)
 
  	Then two lists are declared (the first one - 'guessWord', contains the letters from the word thet needs to be guessed, and the second one - 'H', contains letters from the hangman, letters that are added to the list at each mistake of the Client) and a string - 'msg', whose content will consist of the two lists combined. The two lists are currently empty, they only have square brackets because between them will be included the word to be guessed and hangman.
